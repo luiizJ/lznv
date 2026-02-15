@@ -3,11 +3,27 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./components/sections/Navbar";
 import { TerminalOverlay } from "./components/modules/TerminalOverlay";
 import Hero from "./components/sections/HeroArea";
-import { Pricing } from "./components/sections/Pricing";
-import { ContactCTA } from "./components/sections/ContactCTA";
-import { Services } from "./components/sections/Services";
 import Footer from "./components/sections/Footer";
-import { Portfolio } from "./components/sections/Portfolio";
+import dynamic from "next/dynamic";
+
+// Importação Dinâmica (Lazy Loading)
+const Services = dynamic(
+  () => import("./components/sections/Services").then((mod) => mod.Services),
+  {
+    ssr: true, // Gera o HTML no servidor, mas hidrata depois
+  }
+);
+const Portfolio = dynamic(() =>
+  import("./components/sections/Portfolio").then((mod) => mod.Portfolio)
+);
+const Pricing = dynamic(() =>
+  import("./components/sections/Pricing").then((mod) => mod.Pricing)
+);
+const ContactCTA = dynamic(() =>
+  import("./components/sections/ContactCTA").then((mod) => mod.ContactCTA)
+);
+
+export const dynamicConfig = "force-static";
 
 export default function Home() {
   const [isTerminalOpen, setIsTerminalOpen] = useState<boolean>(false);
