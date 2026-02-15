@@ -7,11 +7,11 @@ const Footer = () => (
         <div className="text-3xl font-black tracking-tighter text-white mb-4">
           lznv<span className="text-blue-500">.</span>
         </div>
-        <p className="text-zinc-600 text-sm max-w-xs font-medium">
+        <p className="text-zinc-400 text-sm max-w-xs font-medium">
           Construindo as ferramentas que movem o amanhã.
         </p>
       </div>
-      <div className="flex flex-col md:items-end gap-6 text-zinc-500">
+      <div className="flex flex-col md:items-end gap-6 text-zinc-400">
         <div className="flex gap-8 text-xs font-bold uppercase tracking-widest">
           <Link
             href="https://www.instagram.com/lznv.dev/"
