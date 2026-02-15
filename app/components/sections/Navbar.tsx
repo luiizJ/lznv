@@ -24,15 +24,24 @@ const Navbar: React.FC<NavbarProps> = ({ onTerminalOpen }) => (
           Portfolio
         </a>
       </div>
-      <div className="flex items-center gap-4 ">
-        <div className=" flex items-center p-3 border gap-2 border-white/10 rounded-full text-zinc-400 hover:text-white transition-all">
-          <span>Terminal</span>
-          <button onClick={onTerminalOpen} className="">
-            <Command size={16} />
-          </button>
-        </div>
+      <div className="flex items-center gap-4">
+        <button
+          onClick={onTerminalOpen}
+          className="group flex items-center p-3 gap-2 border border-white/10 rounded-full text-zinc-400 hover:text-white hover:border-white/20 hover:bg-white/5 transition-all outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+          aria-label="Abrir terminal de comandos"
+        >
+          <span className=" ">Terminal</span>
+          <Command
+            size={16}
+            className="group-hover:rotate-18 transition-transform"
+          />
+        </button>
 
-        <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_#22c55e]" />
+        {/* Status Indicator */}
+        <div
+          className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_#22c55e]"
+          aria-hidden="true"
+        />
       </div>
     </div>
   </nav>
