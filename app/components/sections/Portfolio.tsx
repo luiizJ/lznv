@@ -28,7 +28,7 @@ export const Portfolio: React.FC = () => {
           }}
         ></div>
 
-        <div className="relative z-10 flex flex-col items-center">
+        <div className="relative z-10 flex flex-col items-center ">
           {/* Badge Animado */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -47,7 +47,7 @@ export const Portfolio: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-7xl font-black text-white mb-6 tracking-tighter italic uppercase leading-none"
+            className="text-4xl md:text-7xl font-black text-white mb-6 mt-6 tracking-tighter italic uppercase leading-none"
           >
             Work in <br className="md:hidden" />{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-cyan-500">

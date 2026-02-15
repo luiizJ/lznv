@@ -3,56 +3,7 @@ import { Check } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/Button";
 import { CONFIG } from "@/app/constants/config";
-
-// --- Types & Data ---
-
-interface Plan {
-  name: string;
-  price: string;
-  items: string[];
-  popular?: boolean;
-  suffix?: string;
-}
-
-const PLANS: Plan[] = [
-  {
-    name: "Landing Page",
-    price: "890",
-    suffix: "",
-    items: [
-      "Design de Alta Conversão",
-      "Performance Elite (Load < 1s)",
-      "Otimização SEO Técnica",
-      "Botão WhatsApp & Analytics",
-    ],
-    popular: false,
-  },
-  {
-    name: "SaaS & MVP",
-    price: "3.5",
-    suffix: "k",
-    items: [
-      "App Fullstack (Next.js)",
-      "Dashboard Administrativo",
-      "Autenticação & Banco de Dados",
-      "Gateway de Pagamento (Stripe)",
-      "Infraestrutura Escalável",
-    ],
-    popular: true,
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    items: [
-      "Consultoria de Arquitetura",
-      "Refatoração & Clean Code",
-      "APIs & Integrações Complexas",
-      "Manutenção Mensal",
-      "Suporte Prioritário",
-    ],
-    popular: false,
-  },
-];
+import { PLANS } from "@/app/constants/plans"; // <--- Importamos e usamos aqui
 
 export const Pricing: React.FC = () => {
   const handleSelectPlan = (planName: string) => {
@@ -70,8 +21,7 @@ export const Pricing: React.FC = () => {
       id="pricing"
       className="py-32 px-6 bg-zinc-950/40 border-y border-white/5 relative overflow-hidden"
     >
-      {/* Background Glow Opcional para dar profundidade */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/5 blur-[100px] rounded-full pointer-events-none" />
+      {/* ... (Resto do JSX igual, pois ele vai ler o array PLANS importado) ... */}
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
@@ -82,7 +32,9 @@ export const Pricing: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
+          {/* O map continua funcionando igualzinho */}
           {PLANS.map((p, i) => (
+            // ... card logic ...
             <div
               key={i}
               className={`relative p-px rounded-[2.5rem] transition-all duration-500 hover:scale-[1.02] ${
@@ -95,9 +47,9 @@ export const Pricing: React.FC = () => {
                 {/* Header do Card */}
                 <div className="flex justify-between items-start mb-8">
                   <div>
-                    <h4 className="text-zinc-500 font-bold uppercase tracking-widest text-xs mb-2">
+                    <div className="text-zinc-400 font-bold uppercase tracking-widest text-xs mb-2">
                       {p.name}
-                    </h4>
+                    </div>
                     <div className="text-5xl font-black text-white italic tracking-tighter">
                       {p.price !== "Custom" && (
                         <span className="text-2xl not-italic mr-1 text-zinc-600 font-medium">

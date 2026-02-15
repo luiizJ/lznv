@@ -40,7 +40,7 @@ const Footer = () => (
         </div>
         <div className="text-[10px] font-mono uppercase tracking-tighter">
           Created with <span className="text-blue-600">High-Performance</span>{" "}
-          by Janampa
+          by Lznv
         </div>
       </div>
     </div>

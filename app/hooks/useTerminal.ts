@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { CONFIG } from "../constants/config";
+import { PLANS } from "../constants/plans";
+import { SERVICES } from "../constants/services"; // <--- Importamos aqui
 
 export const useTerminal = (onClose: () => void) => {
   const [input, setInput] = useState("");
@@ -16,8 +18,21 @@ export const useTerminal = (onClose: () => void) => {
     const commands: Record<string, () => string | void> = {
       help: () => "Comandos: status, services, pricing, contact, clear, exit",
       status: () => "Sistemas 100% operacionais. Latência: 4ms.",
-      services: () => "SaaS, Landing Pages, Cloud Infra.",
-      pricing: () => "Starter => (250$), Pro => (3k), Enterprise => (Custom).",
+
+      // --- LÓGICA DINÂMICA DE SERVIÇOS ---
+      services: () => {
+        return SERVICES.map((s) => s.title).join("  ||  ");
+      },
+      // ------------------------------------
+
+      pricing: () => {
+        return PLANS.map((p) => {
+          const priceDisplay =
+            p.price === "Custom" ? "Custom" : `${p.price}${p.suffix || ""}`;
+          return `${p.name} [${priceDisplay}]`;
+        }).join("  ||  ");
+      },
+
       clear: () => {
         setHistory([]);
         return "";
