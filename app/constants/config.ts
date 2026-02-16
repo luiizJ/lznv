@@ -1,5 +1,5 @@
 export const CONFIG = {
-  whatsappNumber: "5583900000000",
+  whatsappNumber: "558393954088",
   whatsappMsg:
-    "Olá Luiz! Vi seu trabalho na lznv e gostaria de iniciar um projeto.",
+    "Olá Luiz! Vi seu trabalho no site e gostaria de iniciar um projeto.",
 };

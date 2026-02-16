@@ -19,11 +19,9 @@ export const useTerminal = (onClose: () => void) => {
       help: () => "Comandos: status, services, pricing, contact, clear, exit",
       status: () => "Sistemas 100% operacionais. Latência: 4ms.",
 
-      // --- LÓGICA DINÂMICA DE SERVIÇOS ---
       services: () => {
         return SERVICES.map((s) => s.title).join("  ||  ");
       },
-      // ------------------------------------
 
       pricing: () => {
         return PLANS.map((p) => {
